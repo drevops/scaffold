@@ -24,12 +24,16 @@ default:
 
   extensions:
     Drupal\MinkExtension:
-      browserkit_http: ~
       base_url: http://nginx:8080
       files_path: '%paths.base%/tests/behat/fixtures'
-      browser_name: chrome
-      selenium2:
-        wd_host: "http://chrome:4444/wd/hub"
+      sessions:
+        default:
+          browserkit_http: ~
+        selenium2:
+          selenium2:
+            browser: chrome
+            wd_host: "http://chrome:4444/wd/hub"
+      default_session: default
       javascript_session: selenium2
     # Provides integration with Drupal APIs.
     Drupal\DrupalExtension:
