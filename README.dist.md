@@ -58,10 +58,6 @@ to DrevOps progress. Remove this section once onboarding is finished.
 - `pygmy up`
 - `ahoy build`
 
-### Apple M1 adjustments
-
-Copy `docker-compose.override.default.yml` to `docker-compose.override.yml`.
-
 ## Project documentation
 
 - [FAQs](docs/faqs.md)

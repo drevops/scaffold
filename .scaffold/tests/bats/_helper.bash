@@ -397,7 +397,6 @@ assert_files_present_drevops() {
   assert_file_exists "behat.yml"
   assert_file_exists "composer.json"
   assert_file_exists ".ahoy.local.example.yml"
-  assert_file_exists "docker-compose.override.default.yml"
   assert_file_exists ".env.local.default"
   assert_file_exists "docker-compose.yml"
   assert_file_exists "phpcs.xml"

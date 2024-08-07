@@ -36,13 +36,6 @@ prepare_sut() {
   mkdir -p .idea
   touch .idea/idea_file.txt
   assert_file_exists .idea/idea_file.txt
-
-  # LCOV_EXCL_START
-  if uname -a | grep -q ARM64; then
-    substep "Override local Docker Compose for ARM."
-    cp docker-compose.override.default.yml docker-compose.override.yml
-  fi
-  # LCOV_EXCL_STOP
 }
 
 docker_remove_image() {
@@ -310,6 +303,7 @@ assert_ahoy_info() {
     assert_output_not_contains "DB-in-image             : ${db_image}"
   fi
   assert_output_contains "Solr URL on host            :"
+  assert_output_contains "Selenium VNC URL on host    :"
   assert_output_contains "Mailhog URL                 : http://mailhog.docker.amazee.io/"
   assert_output_contains "Xdebug                      : Disabled ('ahoy debug' to enable)"
   assert_output_not_contains "Containers are not running."

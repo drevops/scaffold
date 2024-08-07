@@ -36,6 +36,7 @@ commands:
       COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-${PWD##*/}} \
       DREVOPS_HOST_DB_PORT=$(docker compose port mariadb 3306 2>/dev/null | cut -d : -f 2) \
       DREVOPS_HOST_SOLR_PORT=$(docker compose port solr 8983 2>/dev/null | cut -d : -f 2) \
+      DREVOPS_HOST_SELENIUM_VNC_PORT=$(docker compose port chrome 7900 2>/dev/null | cut -d : -f 2) \
       DREVOPS_HOST_HAS_SEQUELACE=$(uname -a | grep -i -q darwin && mdfind -name 'Sequel Ace' 2>/dev/null | grep -q "Ace" && echo 1 || true) \
       ahoy cli ./scripts/drevops/info.sh "$@"
 

@@ -221,7 +221,9 @@ services:
 
   # Chrome container, used for browser testing.
   chrome:
-    image: selenium/standalone-chrome:111.0
+    image: selenium/standalone-chromium:126.0
+    ports:
+      - "7900" # Find port on host with `docker-compose port chrome 7900`.
     shm_size: '1gb' # Increase '/dev/shm' partition size to avoid browser crashing.
     <<: *default-volumes # Use default volumes to provide access to test fixtures.
     environment:
