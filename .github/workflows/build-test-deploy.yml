@@ -1,0 +1,38 @@
+name: Database, Build, Test and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+#    types:
+#      - opened
+#      - synchronize
+#      - reopened
+#    branches:
+#      - feature/**
+
+jobs:
+  database:
+    runs-on: ubuntu-latest
+
+    container:
+      image: drevops/ci-runner:24.8.0
+
+    steps:
+      - name: Debug vars
+        run: |
+          echo VORTEX_DEPLOY_BRANCH
+          echo "${{ github.ref_name }}"
+          echo ---
+          echo VORTEX_DEPLOY_PR
+          echo 1
+          echo "${{ github.event.number }}"
+          echo 2
+          echo "${{ github.pull_request.number }}"
+          echo 3
+          echo "${{ github.ref }}"
+          echo ---
+          echo VORTEX_DEPLOY_PR_HEAD
+          echo "${{ github.sha }}"

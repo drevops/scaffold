@@ -11,7 +11,7 @@
 # @see https://github.com/uselagoon/lagoon-images/tree/main/images/commons
 FROM uselagoon/commons:24.8.0 as commons
 
-FROM clamav/clamav:1.4.0
+FROM clamav/clamav:1.4.1
 
 COPY --from=commons /lagoon /lagoon
 COPY --from=commons /bin/fix-permissions /bin/ep /bin/docker-sleep /bin/wait-for /bin/

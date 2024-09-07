@@ -1,11 +1,6 @@
 {
     "name": "star_wars",
     "networks": {
-        "amazeeio-network": {
-            "external": true,
-            "ipam": [],
-            "name": "amazeeio-network"
-        },
         "default": {
             "ipam": [],
             "name": "star_wars_default"
@@ -258,7 +253,6 @@
                 "lagoon.type": "nginx-php-persistent"
             },
             "networks": {
-                "amazeeio-network": null,
                 "default": null
             },
             "user": "1000",

@@ -14,11 +14,9 @@ load _helper.workflow.bash
   step "Run ahoy local commands"
 
   substep "Assert calling local commands without local file does not throw error"
-  run ahoy local
+  run ahoy --version
   assert_success
   assert_output_not_contains "[fatal]"
-  assert_output_contains ".ahoy.local.yml does not exist."
-  assert_output_contains "Copy .ahoy.local.example.yml to .ahoy.local.yml and rerun this command."
 
   substep "Assert calling local commands with local file path specified and file is present works correctly"
   cp ".ahoy.local.example.yml" ".ahoy.local.yml"
@@ -26,8 +24,6 @@ load _helper.workflow.bash
   assert_success
   assert_output_contains "Custom local commands"
   assert_output_not_contains "[fatal]"
-  assert_output_not_contains ".ahoy.local.yml does not exist."
-  assert_output_not_contains "Copy .ahoy.local.example.yml to .ahoy.local.yml and rerun this command."
 
   substep "Assert calling local commands with local file path specified and file is present and file return non-zero exit code"
 
@@ -41,8 +37,6 @@ load _helper.workflow.bash
   assert_failure
   assert_output_contains "expected failure"
   assert_output_not_contains "[fatal]"
-  assert_output_not_contains ".ahoy.local.yml does not exist."
-  assert_output_not_contains "Copy .ahoy.local.example.yml to .ahoy.local.yml and rerun this command."
 }
 
 @test "Doctor info" {

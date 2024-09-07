@@ -244,7 +244,7 @@ services:
       lagoon.type: none # Do not deploy in Lagoon.
     #;> LAGOON
 
-networks:           ### Use networks locally. Automatically removed in CI.
+networks:           ### Use external networks locally. Automatically removed in CI.
   amazeeio-network: ### Automatically removed in CI.
     external: true  ### Automatically removed in CI.
 

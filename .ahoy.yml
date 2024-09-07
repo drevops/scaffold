@@ -127,6 +127,7 @@ commands:
   #;< !PROVISION_USE_PROFILE
   download-db:
     usage: Download database.
+    aliases: ['fetch-db']
     cmd: ./scripts/vortex/download-db.sh
   #;> !PROVISION_USE_PROFILE
 
@@ -262,13 +263,9 @@ commands:
 
   local:
     usage: Custom local commands. See `ahoy local help`.
-    cmd: |
-      if [ -f .ahoy.local.yml ]; then
-        ahoy -f ".ahoy.local.yml" "$@"
-      else
-        echo ".ahoy.local.yml does not exist."
-        echo "Copy .ahoy.local.example.yml to .ahoy.local.yml and rerun this command.";
-      fi
+    optional: true
+    imports:
+      - .ahoy.local.yml
 
   # ----------------------------------------------------------------------------
   # Utilities.

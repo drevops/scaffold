@@ -57,7 +57,7 @@ aliases:
       # This container has all the necessary tools to run a dockerized environment.
       # @see https://github.com/drevops/ci-runner
       # @see https://hub.docker.com/repository/docker/drevops/ci-runner/tags
-      - image: drevops/ci-runner:24.8.0
+      - image: drevops/ci-runner:24.9.0
         auth:
           username: ${VORTEX_CONTAINER_REGISTRY_USER}
           password: ${VORTEX_CONTAINER_REGISTRY_PASS}
@@ -105,10 +105,6 @@ aliases:
       docker_layer_caching: false
       version: default
 
-  # Set up container network.
-  - &step_setup_container_network
-    run: docker network prune -f >/dev/null 2>&1 && docker network inspect amazeeio-network >/dev/null 2>&1 || docker network create amazeeio-network >/dev/null 2>&1 || true
-
   # Process the codebase to be run in CI environment.
   - &step_process_codebase_for_ci
     run:
@@ -142,7 +138,6 @@ jobs:
       - checkout
       - *step_process_codebase_for_ci
       - *step_setup_remote_docker
-      - *step_setup_container_network
 
       - run:
           name: Create cache keys for database caching as files
@@ -223,7 +218,6 @@ jobs:
       - checkout
       - *step_process_codebase_for_ci
       - *step_setup_remote_docker
-      - *step_setup_container_network
 
       #;< !PROVISION_USE_PROFILE
       - run:
@@ -438,7 +432,6 @@ jobs:
       - checkout
       - *step_process_codebase_for_ci
       - *step_setup_remote_docker
-      - *step_setup_container_network
 
       - run:
           name: Run CircleCI tests (long)
