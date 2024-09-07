@@ -11,6 +11,8 @@ on:
       - synchronize
       - reopened
     branches:
+      - main
+      - develop
       - 'feature/**'
 
 jobs:
