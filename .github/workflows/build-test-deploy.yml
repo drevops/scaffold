@@ -11,7 +11,7 @@ on:
 #      - synchronize
 #      - reopened
     branches:
-      - feature/**
+      - feature/*
 
 jobs:
   database:
