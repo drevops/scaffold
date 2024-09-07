@@ -6,12 +6,12 @@ on:
       - main
       - develop
   pull_request:
-#    types:
+    types:
 #      - opened
-#      - synchronize
+      - synchronize
 #      - reopened
-    branches:
-      - feature/*
+#    branches:
+#      - feature/*
 
 jobs:
   database:
