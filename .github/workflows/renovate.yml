@@ -14,7 +14,7 @@ jobs:
       - uses: suzuki-shunsuke/github-action-renovate-config-validator@v1.1.0
 
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v40.3.1
+        uses: renovatebot/github-action@v40.3.2
         with:
           configurationFile: renovate.json
           token: ${{ secrets.RENOVATE_TOKEN }}
